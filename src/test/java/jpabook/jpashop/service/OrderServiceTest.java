@@ -48,7 +48,7 @@ class OrderServiceTest {
 
     @DisplayName("상품주문 재고수량초과")
     @Test()
-    void productOrderExceedingStockQuantity() {
+    void productOrderExceedingStockQuantity() throws Exception {
         // Given
         Member member = createMember();
         Item item = createBook(10000, "시골 JPA", 10);
@@ -56,9 +56,9 @@ class OrderServiceTest {
         int orderCount = 11;
 
         // When & Then
-        assertThrows(NotEnoughStockException.class, () -> {
-            orderService.order(member.getId(), item.getId(), orderCount);
-        });
+        assertThrows(NotEnoughStockException.class,
+                () -> orderService.order(member.getId(), item.getId(), orderCount),
+                "재고 수량 부족 예외가 발생해야 한다.");
     }
 
     @DisplayName("주문 취소")
