@@ -22,7 +22,7 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
-    @RequestMapping("/members/new")
+    @GetMapping("/members/new")
     public String createFrom(Model model) {
         model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
