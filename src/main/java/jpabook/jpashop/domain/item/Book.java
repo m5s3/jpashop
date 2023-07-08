@@ -31,4 +31,7 @@ public class Book extends Item {
         book.setStockQuantity(stockQuantity);
         return book;
     }
+    static public Book of(){
+        return new Book();
+    }
 }
