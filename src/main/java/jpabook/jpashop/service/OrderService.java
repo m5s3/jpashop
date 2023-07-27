@@ -9,6 +9,9 @@ import jpabook.jpashop.dto.OrderSearch;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.query.OrderSimpleRepository.OrderSimpleQueryDto;
+import jpabook.jpashop.repository.query.OrderSimpleRepository.OrderSimpleQueryDto2;
+import jpabook.jpashop.repository.query.OrderSimpleRepository.OrderSimpleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +24,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
+    private final OrderSimpleRepository orderSimpleRepository;
 
 
     @Transactional
@@ -64,5 +68,9 @@ public class OrderService {
 
     public List<Order> findAllWithMemberDelivery() {
         return orderRepository.findAllWithMemberDelivery();
+    }
+
+    public List<OrderSimpleQueryDto2> findOrderDtos() {
+        return orderSimpleRepository.findOrderDto();
     }
 }
