@@ -1,6 +1,4 @@
-package jpabook.jpashop.api;
-
-import lombok.Data;
+package jpabook.jpashop.dto;
 
 public record CreateMemberResponse(
         Long id

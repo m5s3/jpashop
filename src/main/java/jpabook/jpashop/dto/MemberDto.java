@@ -1,4 +1,4 @@
-package jpabook.jpashop.api;
+package jpabook.jpashop.dto;
 
 public record MemberDto(
         String name
